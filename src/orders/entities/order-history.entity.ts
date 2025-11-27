@@ -16,7 +16,7 @@ export class OrderHistory {
   @ManyToOne(() => Order)
   order: Order;
 
-  @Column()
+  @Column({ type: 'enum', enum: OrderStatus, default: OrderStatus.PENDING })
   status: OrderStatus;
 
   @Column({ nullable: true })
