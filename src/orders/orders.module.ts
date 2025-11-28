@@ -6,6 +6,7 @@ import { Order } from './entities/order.entity';
 import { OrderHistory } from './entities/order-history.entity';
 import { BullModule } from '@nestjs/bullmq';
 import { OrderWorker } from './order.worker';
+import { OrdersGateway } from './orders.gateway';
 
 @Module({
   imports: [
@@ -15,6 +16,6 @@ import { OrderWorker } from './order.worker';
     }),
   ],
   controllers: [OrdersController],
-  providers: [OrdersService, OrderWorker],
+  providers: [OrdersService, OrderWorker, OrdersGateway],
 })
 export class OrdersModule {}

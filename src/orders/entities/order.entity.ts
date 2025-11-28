@@ -22,6 +22,9 @@ export class Order {
   @Column('float')
   amountIn: number;
 
+  @Column('float', { nullable: true })
+  executedPrice: number;
+
   @Column({ type: 'enum', enum: OrderStatus, default: OrderStatus.PENDING })
   status: OrderStatus;
 

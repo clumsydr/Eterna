@@ -5,6 +5,7 @@ import {
 } from '@nestjs/platform-fastify';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import fastifyCors from '@fastify/cors';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -19,6 +20,11 @@ async function bootstrap() {
       transform: true,
     }),
   );
+
+  await app.register(fastifyCors, {
+    origin: true,
+    credentials: true,
+  });
 
   app.setGlobalPrefix('api');
 
