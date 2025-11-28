@@ -20,6 +20,9 @@ import { BullModule } from '@nestjs/bullmq';
     TypeOrmModule.forRoot({
       type: 'postgres',
       url: process.env.DATABASE_URL,
+      ssl: {
+        rejectUnauthorized: false,
+      },
       autoLoadEntities: true,
       synchronize: true,
     }),
