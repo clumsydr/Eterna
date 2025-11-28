@@ -25,6 +25,9 @@ import { BullModule } from '@nestjs/bullmq';
       },
       autoLoadEntities: true,
       synchronize: true,
+      extra: {
+        family: 4,
+      }
     }),
     OrdersModule,
   ],
